@@ -172,10 +172,12 @@
         text-align: center;
       }
       .footer p {
-        font-size: 11px;
+        font-size: 13px;
+	color: white;
+	text-align: left;
       }
       .footer a {
-        color: #ccccff;
+        color: #90BDFC;
       }
       .footer h3 {
 	  font-weight: normal;
@@ -226,6 +228,40 @@
     text-align: left;
     font-size: 13px;
 }
+
+/*Social Icons*/
+.social-icons {
+    margin:0;
+}
+.social-icons li {
+    float:left;
+    display:inline;
+    list-style:none;
+    margin-right:5px;
+    margin-bottom:5px;
+    text-indent:-9999px;
+}
+.social-icons li a, a.social-icon {
+    width:28px;
+    height:28px;
+    display:block;
+    background-position:0 0;
+    background-repeat:no-repeat;
+    transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+}
+.social-icons li:hover a {
+    background-position:0 -38px;
+}
+
+.social_facebook {background: url(/images/social/facebook.png) no-repeat;}
+.social_googleplus {background: url(/images/social/googleplus.png) no-repeat;}
+.social_linkedin {background: url(/images/social/linkedin.png) no-repeat;}
+.social_tumblr {background: url(/images/social/tumblr.png) no-repeat;}
+.social_twitter {background: url(/images/social/twitter.png) no-repeat;}
       
       @media(max-width: 970px){
 	  .footer{
