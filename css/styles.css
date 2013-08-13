@@ -73,16 +73,7 @@
       .asset {
         padding: 2.5% 0%;
       }
-      .footer {
-        color: #cccccc;
-        text-align: center;
-      }
-      .footer p {
-        font-size: 11px;
-      }
-      .footer a {
-        color: #ccccff;
-      }
+      
       /* http://support.addthis.com/customer/portal/questions/1136093-share-buttons-in-center-position */      
       div.addthis_toolbox {
         width:180px;
@@ -174,4 +165,76 @@
       }
       
 
+      /*footer styles */
+      .footer {
+	
+        background-color: #4F5C63;
+        text-align: center;
+      }
+      .footer p {
+        font-size: 11px;
+      }
+      .footer a {
+        color: #ccccff;
+      }
+      .footer h3 {
+	  font-weight: normal;
+	  color: white;
+	  margin: 0;
+      }
+      .footerblock {
+	  position:relative;
+	  width:100%;
+	  text-align: left;
+      }
+      .footerheadersolid{
+	  position:absolute; 
+	  top:0; 
+	  left:0; 
+	  border-bottom: 2px solid #057ce2;
+	  z-index: 1;
+      }
+      .footerheaderdotted{
+	  position:absolute;
+	  top:0;
+	  left:0;
+	  border-bottom: 1px dotted white;
+	  width: 100%
+	  }
+
+.heading {
+    padding:5px 20px 5px 20px;
+    border-left:4px solid #27c5f2; 
+}
+
+.headline {
+    display:block;
+    margin:10px 0 25px 0;
+    border-bottom:1px dotted #e4e9f0;
+    text-align: left;
+}
+
+.headline h3, .headline h4 {
+    color: white;
+    margin:0 0 -2px 0;
+    padding-right:10px;
+    display:inline-block;
+    /*text-shadow:0 0 1px #f6f6f6;*/
+    border-bottom:2px solid #057ce2;
+}
+.footer address {
+    font-style: normal;
+    display:block;
+    margin-bottom:20px;
+    line-height:20px;
+    color: #DEDFE0;
+    text-align: left;
+    font-size: 13px;
+}
       
+      @media(max-width: 970px){
+	  .footer{
+     	      margin-left: -20px;	    
+	      margin-right: -20px;
+	  }
+      }
