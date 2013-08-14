@@ -166,10 +166,11 @@
       
 
       /*footer styles */
-      .footer {
-	
+      .footer {	
         background-color: #4F5C63;
         text-align: center;
+	border-top: 3px solid #057ce2;
+	padding-bottom: 20px;
       }
       .footer p {
         font-size: 13px;
@@ -228,6 +229,30 @@
     text-align: left;
     font-size: 13px;
 }
+.paddedwrapper {
+    padding: 5px 5.5%;
+}   
+
+.finalfooter {
+    background-color: #3A404A;
+    border-top: 1px solid #A8A8A8;
+    text-align: center;
+}
+.finalfooter p {
+    color: #BABABA;
+    font-size: 12px;
+    margin: 0;
+    padding: 0 5px;
+}
+.finalfooter a {
+        color: #90BDFC;
+      }
+.finalfooter a:hover{
+    cursor: pointer;
+}
+
+
+
 
 /*Social Icons*/
 .social-icons {
@@ -264,7 +289,7 @@
 .social_twitter {background: url(/images/social/twitter.png) no-repeat;}
       
       @media(max-width: 970px){
-	  .footer{
+	  .footer, .finalfooter {
      	      margin-left: -20px;	    
 	      margin-right: -20px;
 	  }
