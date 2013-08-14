@@ -174,7 +174,7 @@
       }
       .footer p {
         font-size: 13px;
-	color: white;
+	color: #dadada;
 	text-align: left;
       }
       .footer a {
@@ -232,6 +232,108 @@
 .paddedwrapper {
     padding: 5px 5.5%;
 }   
+
+
+
+
+/*Posts*/
+.posts .dl-horizontal { 
+    margin-bottom:3px;
+    padding:0;
+    background:#fdfdfd;
+    /*border-right:solid 2px #eee;*/
+}
+.posts .dl-horizontal:hover { 
+    border-right:solid 2px #90BDFC;
+    -webkit-transition:all 0.4s ease-in-out;
+    -moz-transition:all 0.4s ease-in-out;
+    -o-transition:all 0.4s ease-in-out;
+    transition:all 0.4s ease-in-out;
+}
+.posts .dl-horizontal dt { 
+    width:50px; 
+    float:left;
+    border: 4px solid #dadada;
+    border-radius: 100%;
+    display: inline-block;
+
+}
+.posts .dl-horizontal dt:hover {
+    border: 4px solid #90BDFC;
+    -webkit-transition:all 0.4s ease-in-out;
+    -moz-transition:all 0.4s ease-in-out;
+    -o-transition:all 0.4s ease-in-out;
+    transition:all 0.4s ease-in-out;
+}
+/*.circleborder {
+border: 5px solid white;
+border-radius: 100%;
+display: inline-block;
+}*/
+.posts .dl-horizontal dt img { 
+    width:50px; 
+    height:50px; 
+    border-radius:100%;
+    /*border:solid 3px #eee;*/
+}
+.posts .dl-horizontal dd { 
+    margin-left:66px;
+}
+.posts .dl-horizontal dd p { 
+    margin:0;
+}
+.posts .dl-horizontal a {
+    font-size:13px;
+    line-height:14px !important; 
+}
+.posts .dl-horizontal a:hover { 
+    color:#90BDFC; 
+    text-decoration:none;
+}
+.posts .dl-horizontal:hover dt, .posts .dl-horizontal:hover dd a { 
+    color:#90BDFC;
+    border-color:#90BDFC !important;
+    -webkit-transition:all 0.4s ease-in-out;
+    -moz-transition:all 0.4s ease-in-out;
+    -o-transition:all 0.4s ease-in-out;
+    transition:all 0.4s ease-in-out;
+}
+
+/*Blog Posts*/
+.footer .posts {
+    padding:0px;
+}
+.footer .blog-list {
+    margin:0;
+    padding:0;
+    color: #dadada;
+    list-style:none;
+}
+.footer .blog-list li {
+    padding:0 0;
+    margin-bottom:7px; 
+}
+.footer .blog-list li span {
+    color:#818488;
+}
+.footer .dl-horizontal,
+.footer .dl-horizontal:hover {
+    border:none !important;
+    background:none !important;
+}
+.footer .dl-horizontal a {
+    color:#dadada;
+}
+.footer .dl-horizontal a:hover {
+    color:#90BDFC !important;
+}
+.footer .dl-horizontal img {
+    border-color:#888 !important;
+}
+
+
+
+
 
 .finalfooter {
     background-color: #3A404A;
