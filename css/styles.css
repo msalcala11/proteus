@@ -1,5 +1,15 @@
 /*My css overrides*/
 
+.nav>li {
+    margin: 0 2px;
+}
+.nav>li>a{
+    
+    border-radius: 10px;
+ 
+}
+
+
       /* Large desktop */
       @media (min-width: 980px) { 
         body {
