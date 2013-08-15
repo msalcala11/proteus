@@ -42,8 +42,9 @@
         line-height: 30px;
       }
       p {
-        font-size: 18px;
+        font-size: 14px;
         line-height: 24px;
+	color: #555;
       }
 
       /* Video pitch and Action */
@@ -163,7 +164,61 @@
 	       margin-right: -20px;
 	    }
       }
+
+/*Service*/
+.service { 
+    margin-bottom:10px;
+    padding:15px 15px 10px;
+}
+.service:hover {
+    border-radius:2px;
+    box-shadow:0 0 15px #ccc;
+    background:#fcfcfc;
+    -webkit-transition:box-shadow 0.2s ease-in-out;
+    -moz-transition:box-shadow 0.2s ease-in-out;
+    -o-transition:box-shadow 0.2s ease-in-out;
+    transition:box-shadow 0.2s ease-in-out;
+}
+.service:hover i {
+    color:#656565;
+}
+.service i {
+    float:left;
+    padding:10px;
+    color:#057ce2;
+    font-size:45px;  
+    text-align:center;
+    -webkit-transition:all 0.4s ease-in-out;
+    -moz-transition:all 0.4s ease-in-out;
+    -o-transition:all 0.4s ease-in-out;
+    transition:all 0.4s ease-in-out;
+}
+.service i.icon-cogs {
+    font-size:37px;
+}
+.service .desc {
+    width:75%;
+    float:right;
+}
+.service .desc h4 {
+    font-size:22px;
+    line-height:25px;
+}
+
+.ie7 .service .circle i  {
+    padding-bottom:45px !important; /*ie7*/
+}
+
+
+
+
       
+
+
+
+
+
+
 
       /*footer styles */
       .footer {	
@@ -212,14 +267,21 @@
     text-align: left;
 }
 
-.headline h3, .headline h4 {
-    color: white;
+.headline h2, .headline h3, .headline h4 {
+    color: white;		 
     margin:0 0 -2px 0;
     padding-right:10px;
     display:inline-block;
     /*text-shadow:0 0 1px #f6f6f6;*/
     border-bottom:2px solid #057ce2;
 }
+
+.headline h2{
+    color: #3B3A3A;
+    font-size: 22px;
+    font-style:normal;
+}
+
 .footer address {
     font-style: normal;
     display:block;
