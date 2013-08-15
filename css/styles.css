@@ -75,6 +75,46 @@
         color: white;
       }
 
+      /*Quotebox */
+      
+.quotebox {
+    padding: 25px 30px;
+    margin-top: 20px;
+    background-color: #F5F5F5; 
+    border-radius: 20px; 
+    border: 1px solid #dadada;
+    overflow: auto;   
+}
+
+.quotebox img {
+    border-radius: 20%;
+    height: 100px;
+    float: left;
+    margin: 0 30px 10px 0;
+    border: 2px solid #dadada;   
+}
+
+.quotebox .signature {
+    height:2em; 
+    line-height:2em;
+    float: left;
+}
+
+.quotebox .social-icons {
+    float: left;
+}
+
+
+
+@media (max-width: 979px){
+    .span1.spacer {
+	display: none;
+    }
+}
+
+
+      
+
       /* Marketing Copy and Footer */
       .copy {
         padding-top: 2.5%;
