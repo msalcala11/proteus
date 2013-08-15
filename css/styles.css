@@ -1,4 +1,4 @@
-/*My css overrides*/
+ /*My css overrides*/
 
 .nav>li {
     margin: 0 2px;
@@ -333,7 +333,7 @@
 .headline h2{
     color: #3B3A3A;
     font-size: 22px;
-    font-style:normal;
+    font-style: normal;
 }
 
 .footer address {
