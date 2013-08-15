@@ -167,11 +167,11 @@
 
 /*Service*/
 .service { 
-    margin-bottom:10px;
+    margin:20px 0;
     padding:15px 15px 10px;
 }
 .service:hover {
-    border-radius:2px;
+    border-radius:20px;
     box-shadow:0 0 15px #ccc;
     background:#fcfcfc;
     -webkit-transition:box-shadow 0.2s ease-in-out;
@@ -274,6 +274,10 @@
     display:inline-block;
     /*text-shadow:0 0 1px #f6f6f6;*/
     border-bottom:2px solid #057ce2;
+}
+
+.removedotted {
+    border-bottom: 0;
 }
 
 .headline h2{
@@ -423,11 +427,11 @@ display: inline-block;
     margin:0;
 }
 .social-icons li {
-    float:left;
+    float: left;
     display:inline;
     list-style:none;
     margin-right:5px;
-    margin-bottom:5px;
+    margin-bottom:0fpx;
     text-indent:-9999px;
 }
 .social-icons li a, a.social-icon {
