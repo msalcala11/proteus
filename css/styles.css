@@ -104,16 +104,103 @@
     float: left;
 }
 
-
-
 @media (max-width: 979px){
     .span1.spacer {
 	display: none;
     }
 }
 
+/*Thumbnail*/
+.thumbnail-style { 
+    padding:5px; 
+    border-radius:2px; 
+}
+.thumbnail-style:hover { 
+    box-shadow:0 0 8px #ddd; 
+    -webkit-transition:box-shadow 0.2s ease-in-out;
+    -moz-transition:box-shadow 0.2s ease-in-out;
+    -o-transition:box-shadow 0.2s ease-in-out;
+    transition:box-shadow 0.2s ease-in-out;
+}
+.thumbnail-style h3 {
+    margin:5px 0 0 0;
+}
+.thumbnail-style h3 a {
+    font-size:20px;
+}
+.thumbnail-style h3 a:hover {
+    color:#72c02c;
+    text-decoration:none;
+}
+.thumbnail-style .thumbnail-img {
+    position:relative;
+}
+.thumbnail-style a.btn-more {
+    right:-10px;
+    bottom:10px;
+    color:#fff;
+    padding:1px 6px;
+    position:absolute;
+    background:#72c02c;
+    display:inline-block; 
+}
+.thumbnail-style a.btn-more:hover {
+    text-decoration:none;
+    box-shadow:0 0 0 2px #377500;
+}
+.thumbnail-style:hover a.btn-more {
+    right:10px;
+}
 
+.thumbnail-kenburn img {
+    left:10px;
+    margin-left:-10px;
+    position:relative;
+   -webkit-transition: all 0.8s ease-in-out;
+   -moz-transition: all 0.8s ease-in-out;
+   -o-transition: all 0.8s ease-in-out;
+   -ms-transition: all 0.8s ease-in-out;
+   transition: all 0.8s ease-in-out;
+}
+.thumbnail-kenburn:hover img {
+   -webkit-transform: scale(1.2) rotate(2deg);
+   -moz-transform: scale(1.2) rotate(2deg);
+   -o-transform: scale(1.2) rotate(2deg);
+   -ms-transform: scale(1.2) rotate(2deg);
+   transform: scale(1.2) rotate(2deg);
+}
+
+.overflow-hidden {
+    overflow:hidden;
+}
       
+/*CSS3 Hover Effects*/
+.hover-effect {
+    -webkit-transition:all 0.4s ease-in-out;
+    -moz-transition:all 0.4s ease-in-out;
+    -o-transition:all 0.4s ease-in-out;
+    transition:all 0.4s ease-in-out;
+}
+.hover-effect-kenburn {
+    left:10px;
+    margin-left:-10px;
+    position:relative;
+   -webkit-transition: all 0.8s ease-in-out;
+   -moz-transition: all 0.8s ease-in-out;
+   -o-transition: all 0.8s ease-in-out;
+   -ms-transition: all 0.8s ease-in-out;
+   transition: all 0.8s ease-in-out;
+}
+.hover-effect-kenburn:hover {
+    -webkit-transform: scale(2) rotate(5deg);
+    -moz-transform: scale(2) rotate(5deg);
+    -o-transform: scale(2) rotate(5deg);
+    -ms-transform: scale(2) rotate(5deg);
+    transform: scale(2) rotate(5deg);
+}
+
+
+
 
       /* Marketing Copy and Footer */
       .copy {
@@ -260,7 +347,82 @@
 }
 
 
+/*Testimonials*/
 
+/*http://ilikepixels.co.uk/drop/bubbler/  */
+
+.bubble 
+{
+position: relative;
+/*width: 250px;*/
+height: 120px;
+padding: 0px;
+margin: 10px 10px 0 10px;
+background: #f5f5f5;
+border: #dadada solid 1px;
+-webkit-border-radius: 16px;
+-moz-border-radius: 16px;
+border-radius: 16px;
+}
+
+.bubble:hover{
+    /*background: #057ce2;*/
+    box-shadow:0 0 15px #ccb;
+
+    -webkit-transition:all 0.4s ease-in-out;
+    -moz-transition:all 0.4s ease-in-out;
+    -o-transition:all 0.4s ease-in-out;
+    transition:all 0.4s ease-in-out;
+}
+
+.bubble:hover p{
+    
+    
+}
+
+.bubble:after 
+{
+content: "";
+position: absolute;
+bottom: -21px;
+left: 70%;
+border-style: solid;
+border-width: 21px 15px 0;
+border-color: #f5f5f5 transparent;
+display: block;
+width: 0;
+z-index: 1;
+}
+
+.bubble:hover:after{
+    /*border-color: #057ce2 transparent;*/
+     
+    -webkit-transition:all 0.4s ease-in-out;
+    -moz-transition:all 0.4s ease-in-out;
+    -o-transition:all 0.4s ease-in-out;
+    transition:all 0.4s ease-in-out;
+}
+
+
+.bubble:before 
+{
+content: "";
+position: absolute;
+top: 121px;
+left: 70%;
+border-style: solid;
+border-width: 22px 15px 0;
+border-color: #dadada transparent;
+display: block;
+width: 0;
+z-index: 0;
+}
+
+.bubble-sig {
+    text-align: right;
+    margin-right: 35%;
+}
+    
 
       
 
