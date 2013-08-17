@@ -7,12 +7,13 @@
     <link rel="stylesheet" href="https://d396qusza40orc.cloudfront.net/startup%2Fcode%2Fbootstrap-combined.no-icons.min.css">
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css">
     <link rel="stylesheet" href="https://d396qusza40orc.cloudfront.net/startup%2Fcode%2Fsocial-buttons.css">    
-    <script src="https://d396qusza40orc.cloudfront.net/startup%2Fcode%2Fjquery.js"></script>
-    <script src="https://d396qusza40orc.cloudfront.net/startup%2Fcode%2Fbootstrap.js"></script>
+
+
     <link href="http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700,300italic,400italic,500italic,700italic" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,300,400,600,700,800" 
           rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="css/styles.css" type="text/css">
+    <link rel="stylesheet" href="css/parallax-slider.css" type="text/css">
 
 
   </head>
@@ -47,7 +48,12 @@
 
     <!-- We use row-fluid inside containers to achieve a resizable layout. -->
     <!-- blogs.endjin.com/2013/04/tips-for-implementing-responsive-designs-using-bootstrap/ -->
-    <!-- http://stackoverflow.com/a/12270322 -->
+   
+
+
+ <!-- http://stackoverflow.com/a/12270322 -->
+<!--    
+
     <div class="container-fluid carousel">
 
       <div class="row-fluid pitch">
@@ -55,7 +61,7 @@
           <img alt="Consultants" src="images/stockphoto.png">
          </div>
 
-        <!-- We define a new 'actions' div to contain statistics, order, and share buttons.-->
+        <!-- We define a new 'actions' div to contain statistics, order, and share buttons.
         <div class="span5 content">
           <div class="row-fluid">
           
@@ -73,7 +79,73 @@
         </div>
         </div>
       </div>
-    </div>
+    </div><!-- end carousel-->
+
+
+<!--=== Slider ===-->
+<div class="slider-inner">
+    <div id="da-slider" class="da-slider">
+        <div class="da-slide">
+          <h2><i>Introducing</i> <br /> <i>Atlantis&trade;</i> <br /> <i>In the Cloud</i></h2>
+          <p><i>The world's first all-in-one</i> <br /> <i>Change Management</i> <br /> <i>solution. Learn More..</i>
+
+</p>
+            <div class="da-img"><img src="images/parallax-slider/1.png" alt="" /></div>
+        </div>
+
+
+<!--
+        <div class="da-slide">
+            <h2><i>RESPONSIVE VIDEO</i> <br /> <i>SUPPORT AND</i> <br /> <i>MANY MORE</i></h2>
+            <p><i>Lorem ipsum dolor amet</i> <br /> <i>tempor incididunt ut</i></p>
+            <div class="da-img span6">
+              <div class="span6">
+<!--		<iframe src="http://player.vimeo.com/video/47911018" width="100%" height="320" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe> 
+		</div>
+            </div>
+        </div>-->
+
+
+
+
+        <div class="da-slide">
+            <h2><i>USING BEST WEB</i> <br /> <i>SOLUTIONS WITH</i> <br /> <i>HTML5/CSS3</i></h2>
+            <p><i>Lorem ipsum dolor amet</i> <br /> <i>tempor incididunt ut</i> <br /> <i>veniam omnis </i></p>
+            <div class="da-img"><img src="images/parallax-slider/html5andcss3.png" alt="image01" /></div>
+        </div>
+
+
+
+
+        <nav class="da-arrows">
+            <span class="da-arrows-prev"></span>
+            <span class="da-arrows-next"></span>
+        </nav>
+    </div><!--/da-slider-->
+</div><!--/slider-->
+<!--=== End Slider ===-->
+
+
+<!--=== Purchase Block ===-->
+<div class="container-fluid purchase"  style="margin-right: -20px;margin-left: -20px;">
+<div class="row-fluid">
+
+    <div class="container">
+      <div class="span9">
+            <span>Proteus is the worldwide leader in Change Management</span>
+            <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi  vehicula sem ut volutpat. Ut non libero magna fusce condimentum eleifend enim a feugiat.</p>
+        </div>
+<!--        <a href="#" class="btn-buy hover-effect">Let's Talk Business</a>-->
+<div class="center">
+  <div class="btn btn-large btn-success" style="margin: 22px 0 0 0;">Let's Talk Business &nbsp;<i class="icon-arrow-right"></i></div>
+</div>
+    
+  </div>
+</div><!--/row-fluid-->
+</div>
+<!-- End Purchase Block -->
+
+
 
 
 
@@ -359,7 +431,33 @@
       </div>
     </div>
     
+<!-- Javascript -->
 
+<!--coursera scripts-->
+    <script src="https://d396qusza40orc.cloudfront.net/startup%2Fcode%2Fjquery.js"></script>
+    <script src="https://d396qusza40orc.cloudfront.net/startup%2Fcode%2Fbootstrap.js"></script>
+
+<!--my scripts-->
     <script src="js/scripts.js"></script>
+    
+<!-- parallax-slider scripts -->
+    <script type="text/javascript" src="js/modernizr.custom.js"></script>
+    <script type="text/javascript" src="js/modernizr.js"></script>
+    <script type="text/javascript" src="js/jquery.cslider.js"></script> 
+
+<!-- JS Page Level -->           
+<script type="text/javascript" src="js/app.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function() {
+    App.init();
+        //App.initSliders();
+        Index.initParallaxSlider();
+    });
+</script>
+
+
+
+
   </body>
 </html>
