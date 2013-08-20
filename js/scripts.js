@@ -28,3 +28,30 @@
             });            
 	  });
 
+//script for monthly newsletter subscription click
+//$(document).ready(function () {
+//function validateSubscription(){
+$("#subscribe-input").keyup(function(event){
+    if(event.keyCode == 13){
+        $("#btn-subscribe").click();
+    }
+});
+
+
+    $("#btn-subscribe").click(function(e){
+	//    alert("Thank you for subscribing.");
+
+	var input = $("#subscribe-input").val();
+	if(input.search("@") == -1){
+	    message = "Please enter a valid email address.";
+	    }
+	else{
+	    message = "Thank you for subscribing!";
+	    }
+	console.log(message);
+	$("#subscribe-response p").text(message);
+	$("#subscribe-response").removeClass("hidden");
+    });
+//}
+//});
+

@@ -337,11 +337,12 @@
 	  <p>Subscribe to our newsletter and stay up to date with the latest
 	    developments in the industry.
 	 
-	  <form class="form-search" style="text-align: left;">
+	  <form class="form-search" style="text-align: left;" onSubmit="return false;">
 	  <div class="input-append" style="margin-bottom:20px;" >
-	    <input class="span7 search-query" id="appendedInputButton" type="text" placeholder="Email Address">
-	    <button class="btn btn-primary" type="button">Subscribe</button>
+	    <input class="span7 search-query" id="subscribe-input" type="text" placeholder="Email Address">
+	    <button  id="btn-subscribe" class="btn btn-primary" type="button">Subscribe</button>
 	  </div>
+	  <div id="subscribe-response" class="hidden"><p>Thank you for your subscription.</p></div>
 	  </form>
 	  </p>
         </div>
