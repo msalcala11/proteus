@@ -732,3 +732,8 @@ display: inline-block;
 .hidden {
     display: none;
 }
+
+.form-search .input-append .search-query:disabled {
+    background-color: #dadada;
+    cursor: auto;
+}
