@@ -313,6 +313,13 @@
     background:url('/images/breadcrumbs.png') repeat;
 }
 
+@media(max-width: 970px){
+    .purchase{
+	margin-right: -20px;
+	margin-left: -20px;
+    }
+}
+
 .purchase .container {
     padding:0 20px;
 }
