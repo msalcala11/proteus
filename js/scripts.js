@@ -9,9 +9,9 @@
               $(this).addClass('active');                
       
       //now lets scroll to the appropriate section
-          if(h.indexOf('#') == 0) {
+          if(h.indexOf('#') === 0) {
             h = h.substring(1);
-            if(h == 'home') {
+            if(h === 'home') {
               $('html, body').stop().animate({
                 scrollTop: 0
               });
@@ -32,7 +32,7 @@
 //$(document).ready(function () {
 //function validateSubscription(){
 $("#subscribe-input").keyup(function(event){
-    if(event.keyCode == 13){
+    if(event.keyCode === 13){
         $("#btn-subscribe").click();
     }
 });
@@ -45,7 +45,7 @@ $("#subscribe-input").keyup(function(event){
 if(!$("#btn-subscribe").hasClass('disabled')){//do not do anything if already submitted email address
     var input = $("#subscribe-input").val();
     function validateEmail(email) {// http://thejimgaudet.com/articles/support/web/jquery-email-validation-without-a-plugin/
-	if(email == ""){
+	if(email === ""){
 	    var isEmail = false;
 	    }
 	else{
