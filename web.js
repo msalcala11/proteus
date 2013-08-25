@@ -27,7 +27,7 @@ else{//we are on ec2
 //Set time zone for timestamps to 'America/New_York'
 client.query("SET TIME ZONE 'America/New_York';");
 //initlize monthly newsletter subscription table if it does not exist
-client.query("CREATE TABLE IF NOT EXISTS newsletter(subscription_date timestamp default current_timestamp,email varchar(255));");
+client.query("CREATE TABLE IF NOT EXISTS newsletter(subscriber_id serial primary key,subscription_date timestamp default current_timestamp,email varchar(255));");
 
 var number = 2;
 var app = express.createServer(express.logger());
@@ -43,10 +43,52 @@ app.get('/', function(request, response) {
 });
 
 app.post('/new_newsletter_subscriber', function(req, res) {
-    console.log(req.body.name);
-    var sqlQuery = util.format("INSERT INTO newsletter(email) values('%s')", req.body.email);
-    console.log(sqlQuery);
-    client.query(sqlQuery);
+    //lets store email in database only if the email does not already exist in database
+    var sqlCheckStr = util.format("SELECT COUNT(1) FROM newsletter WHERE email = '%s';", req.body.email);
+
+    var numDuplicates;
+
+    client.query(sqlCheckStr, function(err, result){
+	console.log(result.rows[0].count);
+	numDuplicates = result.rows[0].count;
+	if(numDuplicates === '0'){	    
+	    var sqlQuery = util.format("INSERT INTO newsletter(email) values('%s')", req.body.email);
+	    console.log(sqlQuery);
+	    client.query(sqlQuery);
+	    //lets send response back to client
+	    res.send("success");
+	}
+	else{
+	    res.send("duplicate_email");
+	}
+    });
+//    console.log("numDups: " + numDuplicates);
+    /*
+    var sqlCheck = client.query(sqlCheckStr);
+    sqlCheck.on('row', function(row, result){
+	console.log(row.count);
+	numDuplicates = row.count;
+	result.addRow(row);
+    });
+
+    sqlCheck.on('end', function(result){
+	client.end();
+	console.log("NumDups: " + numDuplicates);
+	if(numDuplicates === '0'){
+	    console.log("unique");
+	}
+	else{
+	    console.log("already exists");
+	}
+    });
+    console.log("numDups: " + numDuplicates);*/
+    
+    //var sqlQuery = util.format("INSERT INTO newsletter(email) values('%s')", req.body.email);
+    //console.log(sqlQuery);
+    //client.query(sqlQuery);
+    
+    //lets send response back to client
+   // res.send("success");
 });
 
 var port = process.env.PORT || 8080;

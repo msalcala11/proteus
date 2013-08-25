@@ -41,27 +41,49 @@ $("#newsletter-form").submit(function(e){
 	    }
 	    return isEmail;
 	}
+	var message = '';
 	
 	if(!validateEmail(input)){
 	    message = "Please enter a valid email address.";
 	}
 	else{
 	    //lets post the email and store it in db
-	    $.ajax({  
-		type: "POST",  
-		url: "/new_newsletter_subscriber",  
-		data: {"email":input},  
-		success: function() {  
-		    //we implement the success action below  
-		}  
-	    });  
+
+	    function myCallback(response){
+		if(response === 'success'){
+		    message = "Thank you for subscribing!";
+		    $('#btn-subscribe').removeClass('btn-primary');
+		    $('#btn-subscribe').addClass('disabled');
+		    $('#btn-subscribe').addClass('btn-success');
+		    $('#btn-subscribe').text("Success!");
+		    $('#subscribe-input').prop('disabled', true);
+		    
+		    $("#subscribe-response p").text(message);
+		    $("#subscribe-response").removeClass("hidden");
+		}
+		else{
+		    message = "It looks like you've already signed up with " + input+ ". However, you're welcome to subscribe again with a different email address!";
+		    $("#subscribe-response p").text(message);
+		    $("#subscribe-response").removeClass("hidden");
+		}
+	    }
 	    
-	    message = "Thank you for subscribing!";
-	    $('#btn-subscribe').removeClass('btn-primary');
-	    $('#btn-subscribe').addClass('disabled');
-	    $('#btn-subscribe').addClass('btn-success');
-	    $('#btn-subscribe').text("Success!");
-	    $('#subscribe-input').prop('disabled', true);
+	    function myConnection(callback){
+
+		$.ajax({  
+		    type: "POST",  
+		    url: "/new_newsletter_subscriber",  
+		    data: {"email":input},  
+		    success: function(response) {  
+		    //we implement the success action below  
+			callback(response);
+		}  
+		
+		}); 
+	    } 
+	    
+	    myConnection(myCallback);
+	    
 	}
 	$("#subscribe-response p").text(message);
 	$("#subscribe-response").removeClass("hidden");
