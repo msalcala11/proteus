@@ -31,14 +31,14 @@
 //script for monthly newsletter subscription click
 //$(document).ready(function () {
 //function validateSubscription(){
-$("#subscribe-input").keyup(function(event){
+/*$("#subscribe-input").keyup(function(event){
     if(event.keyCode === 13){
         $("#btn-subscribe").click();
     }
-});
+});*/
 
 
-    $("#btn-subscribe").click(function(e){
+    $("#newsletter-form").submit(function(e){
 	//    alert("Thank you for subscribing.");
 
 
@@ -62,6 +62,19 @@ if(!$("#btn-subscribe").hasClass('disabled')){//do not do anything if already su
 	    message = "Please enter a valid email address.";
 	    }
 	else{
+	    //lets post the email and store it in db
+	    $.ajax({  
+		type: "POST",  
+		url: "/new_newsletter_subscriber",  
+		data: {"email":input},  
+		//contentType: "application/json",
+		//dataType: "json",
+		//data: "{'name':'" + name + "', 'age':'" + age + "'}",
+		success: function() {  
+		    //we implement the success action below  
+		}  
+	    });  
+
 	    message = "Thank you for subscribing!";
 	    $('#btn-subscribe').removeClass('btn-primary');
 	    $('#btn-subscribe').addClass('disabled');
@@ -73,7 +86,7 @@ if(!$("#btn-subscribe").hasClass('disabled')){//do not do anything if already su
 	$("#subscribe-response p").text(message);
 	$("#subscribe-response").removeClass("hidden");
 }
-	
+	e.preventDefault();
     });
 //}
 //});
