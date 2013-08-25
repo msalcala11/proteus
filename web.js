@@ -24,6 +24,7 @@ else{//we are on ec2
     client.connect();
 }
 
+//Set time zone for timestamps to 'America/New_York'
 client.query("SET TIME ZONE 'America/New_York';");
 //initlize monthly newsletter subscription table if it does not exist
 client.query("CREATE TABLE IF NOT EXISTS newsletter(subscription_date timestamp default current_timestamp,email varchar(255));");
