@@ -8,16 +8,6 @@ var email   = require("emailjs");
 
 //console.log(eusername+epassword+ehost);
 
-
-var emailServer  = email.server.connect({
-
-    user:     eusername, 
-    password: epassword,
-    host:     ehost, 
-    ssl:      true
-
-});
-
 /*
 emailServer.send({
    text:    "This is awesome", 
@@ -63,6 +53,16 @@ else{//we are on ec2
     var ehost = eptokens[2];
 
 }
+
+var emailServer  = email.server.connect({
+
+    user:     eusername, 
+    password: epassword,
+    host:     ehost, 
+    ssl:      true
+
+});
+
 
 //Set time zone for timestamps to 'America/New_York'
 client.query("SET TIME ZONE 'America/New_York';");
