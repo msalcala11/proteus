@@ -44,6 +44,7 @@ $("#newsletter-form").submit(function(e){
 	var message = '';
 	
 	if(!validateEmail(input)){
+	    $('#subscribe-response').addClass('alert-error');
 	    message = "Please enter a valid email address.";
 	}
 	else{
@@ -58,12 +59,17 @@ $("#newsletter-form").submit(function(e){
 		    $('#btn-subscribe').text("Success!");
 		    $('#subscribe-input').prop('disabled', true);
 		    
-		    $("#subscribe-response p").text(message);
+		    $("#response-text").text(message);
+		    if($('#subscribe-response').hasClass('alert-error')){
+			$('#subscribe-response').removeClass('alert-error');
+		    }
+		    $('#subscribe-response').addClass('alert-success');
 		    $("#subscribe-response").removeClass("hidden");
 		}
 		else{
 		    message = "It looks like you've already signed up with " + input+ ". However, you're welcome to subscribe again with a different email address!";
-		    $("#subscribe-response p").text(message);
+		    $("#response-text").text(message);
+		    $('#subscribe-response').addClass('alert-error');
 		    $("#subscribe-response").removeClass("hidden");
 		}
 	    }
@@ -85,7 +91,7 @@ $("#newsletter-form").submit(function(e){
 	    myConnection(myCallback);
 	    
 	}
-	$("#subscribe-response p").text(message);
+	$("#response-text").text(message);
 	$("#subscribe-response").removeClass("hidden");
     }
     e.preventDefault();

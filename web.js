@@ -2,6 +2,38 @@ var pg = require('pg');
 var fs = require('fs');
 var express = require('express');
 var util = require('util');
+var email   = require("emailjs");
+
+//lets set up our email connection
+var EPASS_FILE = '../.emailpass';
+var eptokens = fs.readFileSync(EPASS_FILE).toString().split(':');
+var eusername = eptokens[0];
+var epassword = eptokens[1];
+var ehost = eptokens[2];
+
+
+//console.log(eusername+epassword+ehost);
+
+
+var emailServer  = email.server.connect({
+
+    user:     eusername, 
+    password: epassword,
+    host:     ehost, 
+    ssl:      true
+
+});
+
+/*
+emailServer.send({
+   text:    "This is awesome", 
+   from:    "you <realcala1@yahoo.com>", 
+   to:      "Marty <realcala1@yahoo.com>",
+//   cc:      "else <else@gmail.com>",
+   subject: "Another test"
+}, function(err, message) { console.log(err || message); });
+
+*/
 
 //Postres connection
 if(process.env.DATABASE_URL){//we are on heroku
