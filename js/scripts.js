@@ -52,14 +52,14 @@ $("#newsletter-form").submit(function(e){
 
 	    function myCallback(response){
 		if(response === 'success'){
-		    message = "Thank you for subscribing!";
+		    message = "<strong>Success!</strong> Thank you for subscribing!";
 		    $('#btn-subscribe').removeClass('btn-primary');
 		    $('#btn-subscribe').addClass('disabled');
 		    $('#btn-subscribe').addClass('btn-success');
 		    $('#btn-subscribe').text("Success!");
 		    $('#subscribe-input').prop('disabled', true);
 		    
-		    $("#response-text").text(message);
+		    $("#response-text").html(message);
 		    if($('#subscribe-response').hasClass('alert-error')){
 			$('#subscribe-response').removeClass('alert-error');
 		    }
@@ -93,8 +93,26 @@ $("#newsletter-form").submit(function(e){
 	}
 	$("#response-text").text(message);
 	$("#subscribe-response").removeClass("hidden");
+	$(".alert").show();
     }
     e.preventDefault();
 });
 
+$(function(){
+    $(".close").on("click", function(){
+	//console.log('triggered');
+	$(this).parent().hide();
+        /*
+         * The snippet above will hide all elements with the class specified in data-hide,
+         * i.e: data-hide="alert" will hide all elements with the alert property.
+         *
+         * Xeon06 provided an alternative solution:
+         * $(this).closest("." + $(this).attr("data-hide")).hide();
+         * Use this if are using multiple alerts with the same class since it will only find the closest element
+         * 
+         * (From jquery doc: For each element in the set, get the first element that matches the selector by
+         * testing the element itself and traversing up through its ancestors in the DOM tree.)
+        */
+    });
+});
 
