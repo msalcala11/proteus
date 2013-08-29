@@ -4,12 +4,6 @@ var express = require('express');
 var util = require('util');
 var email   = require("emailjs");
 
-//lets set up our email connection
-var EPASS_FILE = '../.emailpass';
-var eptokens = fs.readFileSync(EPASS_FILE).toString().split(':');
-var eusername = eptokens[0];
-var epassword = eptokens[1];
-var ehost = eptokens[2];
 
 
 //console.log(eusername+epassword+ehost);
@@ -40,6 +34,12 @@ if(process.env.DATABASE_URL){//we are on heroku
     connectionString = process.env.DATABASE_URL;
     var client = new pg.Client(connectionString);
     client.connect();
+
+    //lets set up our email connection
+    var eptokens = process.env.EPASS;
+    var eusername = eptokens[0];
+    var epassword = eptokens[1];
+    var ehost = eptokens[2];
 }
 else{//we are on ec2
     //format of conString = "postgres://user:password@host:port/dbname";
@@ -54,6 +54,14 @@ else{//we are on ec2
 
     var client = new pg.Client(conString);
     client.connect();
+
+    //lets set up our email connection
+    var EPASS_FILE = '../.emailpass';
+    var eptokens = fs.readFileSync(EPASS_FILE).toString().split(':');
+    var eusername = eptokens[0];
+    var epassword = eptokens[1];
+    var ehost = eptokens[2];
+
 }
 
 //Set time zone for timestamps to 'America/New_York'
