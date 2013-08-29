@@ -8,7 +8,8 @@
   },
   "dependencies": {
       "express": "~3.3.4",
-      "pg": "2.4.0"
+      "pg": "2.4.0",
+      "emailjs": "0.3.3"
   },
   "engines": {
     "node": "0.8.x",
@@ -22,7 +23,7 @@
     "node",
     "heroku"
   ],
-  "author": "Mark Pundsack",
+  "author": "msalcala11",
   "license": "BSD",
   "gitHead": "90fd58e343c29e54fc1d4e19036595500b2bdc21"
 }
