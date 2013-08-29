@@ -4,10 +4,6 @@ var express = require('express');
 var util = require('util');
 var email   = require("emailjs");
 
-
-
-//console.log(eusername+epassword+ehost);
-
 /*
 emailServer.send({
    text:    "This is awesome", 

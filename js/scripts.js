@@ -81,15 +81,12 @@ $("#newsletter-form").submit(function(e){
 		    url: "/new_newsletter_subscriber",  
 		    data: {"email":input},  
 		    success: function(response) {  
-		    //we implement the success action below  
+		    //once we recieve the server response to our previous post:  
 			callback(response);
-		}  
-		
+		    }  		
 		}); 
-	    } 
-	    
-	    myConnection(myCallback);
-	    
+	    } 	    
+	    myConnection(myCallback);	    
 	}
 	$("#response-text").text(message);
 	$("#subscribe-response").removeClass("hidden");
@@ -98,21 +95,11 @@ $("#newsletter-form").submit(function(e){
     e.preventDefault();
 });
 
+//Function to handle the opening and closing of alert boxes by hiding them temporarily
+//rather than dismissing them permanently
 $(function(){
     $(".close").on("click", function(){
-	//console.log('triggered');
 	$(this).parent().hide();
-        /*
-         * The snippet above will hide all elements with the class specified in data-hide,
-         * i.e: data-hide="alert" will hide all elements with the alert property.
-         *
-         * Xeon06 provided an alternative solution:
-         * $(this).closest("." + $(this).attr("data-hide")).hide();
-         * Use this if are using multiple alerts with the same class since it will only find the closest element
-         * 
-         * (From jquery doc: For each element in the set, get the first element that matches the selector by
-         * testing the element itself and traversing up through its ancestors in the DOM tree.)
-        */
     });
 });
 
