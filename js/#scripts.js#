@@ -3,7 +3,7 @@
 //This segment changes the active navbar button when it is clicked
 $(document).ready(function () {
     $('ul.nav > li').click(function (e) {
-	var h = $('a', this).attr('href');	
+lsdklj	var h = $('a', this).attr('href');	
         $('ul.nav > li').removeClass('active');
         $(this).addClass('active');                
 	
@@ -110,3 +110,6 @@ $("#myModal").on("show", function () {
 }).on("hidden", function () {
   $("body").removeClass("modal-open")
 });
+
+
+
