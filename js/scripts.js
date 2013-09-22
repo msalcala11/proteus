@@ -28,7 +28,6 @@ $(document).ready(function () {
 
 //Lets handle the monthly newsletter subscription
 $("#newsletter-form").submit(function(e){
-
     if(!$("#btn-subscribe").hasClass('disabled')){//do not do anything if already submitted email address
 	var input = $("#subscribe-input").val();
 	function validateEmail(email) {// http://thejimgaudet.com/articles/support/web/jquery-email-validation-without-a-plugin/
@@ -105,7 +104,6 @@ $(function(){
 
 //This snippet prevents the body from scrolling in the background when myModal is open
 $("#myModal").on("show", function () {
-    console.log('modal body css applied');
   $("body").addClass("modal-open");
 }).on("hidden", function () {
   $("body").removeClass("modal-open")
@@ -114,7 +112,6 @@ $("#myModal").on("show", function () {
 //This snippets allows for modal form fading on form submit
 
 $("#letsTalkBizForm").submit(function(e){
-
     var name = $("#name").val();
     var organization = $("#organization").val();
     var email = $("#email").val();
@@ -137,10 +134,8 @@ $("#letsTalkBizForm").submit(function(e){
     var projectError = "Please enter a brief description of your project.";
     var message = '';
 
-    console.log(name);
     if(name === ''){
 	message = message + nameError + '</br>';
-	console.log(message);
     }
     if(!validateEmail(email)){
 //	$('#inquiry-validation-response').addClass('alert-error');
@@ -153,17 +148,15 @@ $("#letsTalkBizForm").submit(function(e){
 	if(message !== ""){
 	    $('#inquiry-validation-response').addClass('alert-error');
 	    //message = "Please enter a valid email address.";
-	    $("#response-text").html(message);
+	    $("#inquiry-response-text").html(message);
 	    $("#inquiry-validation-response").removeClass("hidden");
 	    $(".alert").show();
-
 	}
 	else{
 	    //lets post the email and store it in db
 
 	    function myCallback(response){
 		if(response === 'success'){
-		    console.log("server recieved the call");
 		    $("#letsTalkBizForm").fadeOut( "slow" );
 		    $("#myModalLabel").text("Success!");
 		    $("#submitConfirmation").fadeIn("slow");
@@ -183,8 +176,7 @@ $("#letsTalkBizForm").submit(function(e){
 		    $('#subscribe-response').addClass('alert-success');
 		    $("#subscribe-response").removeClass("hidden");*/
 		}
-		else{
-		    	    console.log("server did not recieve the call");
+		else{		    	    
 		    /*
 		    message = "It looks like you've already signed up with " + input+ ". However, you're welcome to subscribe again with a different email address!";
 		    $("#response-text").text(message);
