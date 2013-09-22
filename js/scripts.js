@@ -110,3 +110,116 @@ $("#myModal").on("show", function () {
 }).on("hidden", function () {
   $("body").removeClass("modal-open")
 });
+
+//This snippets allows for modal form fading on form submit
+
+$("#letsTalkBizForm").submit(function(e){
+
+    var name = $("#name").val();
+    var organization = $("#organization").val();
+    var email = $("#email").val();
+    var project_description = $("#project_description").val();
+    
+    function validateEmail(email) {// http://thejimgaudet.com/articles/support/web/jquery-email-validation-without-a-plugin/
+	if(email === ""){
+	    var isEmail = false;
+	}
+	else{
+	    var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+	    var isEmail = emailReg.test(email);
+	}
+	return isEmail;
+    }
+
+    //lets write our form validation code for each field
+    var nameError = "Please enter your name.";
+    var emailError = "Please enter a valid email address.";
+    var projectError = "Please enter a brief description of your project.";
+    var message = '';
+
+    console.log(name);
+    if(!name || 0 === name.length){
+	message = message + nameError + '</br>';
+	console.log("made it into conditional");
+	console.log(message);
+    }
+    if(!validateEmail(email)){
+//	$('#inquiry-validation-response').addClass('alert-error');
+	message = message + emailError + '</br>';
+    }
+    if(project_description === ''){
+	message = message + projectError;
+    }
+    console.log(message);
+
+	
+	if(message !== ""){
+	    $('#inquiry-validation-response').addClass('alert-error');
+	    //message = "Please enter a valid email address.";
+	    $("#response-text").html(message);
+	    $("#inquiry-validation-response").removeClass("hidden");
+	    $(".alert").show();
+
+	}
+	else{
+	    //lets post the email and store it in db
+
+	    function myCallback(response){
+		if(response === 'success'){
+		    console.log("server recieved the call");
+		    $("#letsTalkBizForm").fadeOut( "slow" );
+		    $("#myModalLabel").text("Success!");
+		    $("#submitConfirmation").fadeIn("slow");
+		    $("#myModalSaveChanges").fadeOut("slow");
+		    
+	/*	    message = "<strong>Success!</strong> Thank you for subscribing!";
+		    $('#btn-subscribe').removeClass('btn-primary');
+		    $('#btn-subscribe').addClass('disabled');
+		    $('#btn-subscribe').addClass('btn-success');
+		    $('#btn-subscribe').text("Success!");
+		    $('#subscribe-input').prop('disabled', true);
+		    
+		    $("#response-text").html(message);
+		    if($('#subscribe-response').hasClass('alert-error')){
+			$('#subscribe-response').removeClass('alert-error');
+		    }
+		    $('#subscribe-response').addClass('alert-success');
+		    $("#subscribe-response").removeClass("hidden");*/
+		}
+		else{
+		    	    console.log("server did not recieve the call");
+		    /*
+		    message = "It looks like you've already signed up with " + input+ ". However, you're welcome to subscribe again with a different email address!";
+		    $("#response-text").text(message);
+		    $('#subscribe-response').addClass('alert-error');
+		    $("#subscribe-response").removeClass("hidden");*/
+		}
+	    }
+	    
+	    function myConnection(callback){
+
+		$.ajax({  
+		    type: "POST",  
+		    url: "/new_inquiry",  
+		    data: {"name": name,"organization": organization, "email": email, "project_description": project_description},   
+		    success: function(response) {  
+		    //once we recieve the server response to our previous post:  
+			callback(response);
+		    }  		
+		}); 
+	    } 	    
+	    myConnection(myCallback);	    
+	}
+/*    $("#response-text").text(message);
+    $("#inquiry-validation-response").removeClass("hidden");
+    $(".alert").show();
+    
+
+
+    $("#letsTalkBizForm").fadeOut( "slow" );
+    $("#myModalLabel").text("Success!");
+    $("#submitConfirmation").fadeIn("slow");
+    $("#myModalSaveChanges").fadeOut("slow");*/
+    e.preventDefault();
+});
+

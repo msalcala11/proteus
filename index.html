@@ -99,57 +99,77 @@
     <h3 id="myModalLabel">Let's Talk Business</h3>
   </div>
   <div class="modal-body">
+    <form id="letsTalkBizForm">
     <p>Tell us a little about your organization's upcoming change implementation. We'd love to offer our wisdom to help you succeed.</p></br>
-    <div class="form-horizontal">
-      <div class="control-group">
-	<label class="control-label" for="inputText">Name</i></label>
-<div class="controls">
-  <div class="input-prepend">
-    <span class="add-on"><i class="icon-user"></i></span>
-    <input type="text" id="inputName" placeholder="Name">
-  </div>
-</div>
-</div>
-<div class="control-group">
-  <label class="control-label" for="inputText">Organization</i></label>
-<div class="controls">
-  <div class="input-prepend">
-    <span class="add-on"><i class="icon-group"></i></span>
-    <input type="text" id="inputOrganization" placeholder="Organization">
-  </div>
-</div>
-</div>
-<div class="control-group">
-  <label class="control-label" for="inputEmail">Email</i></label>
-<div class="controls">
-  <div class="input-prepend">
-    <span class="add-on"><i class="icon-envelope"></i></span>
-    <input type="text" id="inputEmail" placeholder="Email">
-  </div>
-</div>
-</div>
-<div class="control-group">
-  <label class="control-label" for="inputPassword">Brief Project Description</label>
-  <div class="controls">
-    <textarea style="width:67%;" rows="3" placeholder="A brief description of the change you are planning to implement"></textarea>
-  </div>
-</div>
-<div class="control-group">
-  <div class="controls">
-    <label class="checkbox">
-      <input type="checkbox" checked> Sign up for Monthly Newsletter
-    </label>
-    <button type="submit" class="btn">Send</button>
-  </div>
-</div>
-</div><!-- end of form-->
+    <div id="inquiry-validation-response" class="hidden alert">
+      <button type="button" class="close">&times;</button>
+      <div id="response-text"><strong>Warning!</strong> Best check yo self, you're not looking too good.</div>
+    </div>
+      <div class="form-horizontal">
+	<div class="control-group">
+	  <label class="control-label" for="inputText">Name</label>
+	  <div class="controls">
+	    <div class="input-prepend">
+	      <span class="add-on"><i class="icon-user"></i></span>
+	      <input type="text" id="name" placeholder="Name" maxlength="50">
+	    </div>
+	  </div>
+	</div>
+	<div class="control-group">
+	  <label class="control-label" for="inputText">Organization</label>
+	  <div class="controls">
+	    <div class="input-prepend">
+	      <span class="add-on"><i class="icon-group"></i></span>
+	      <input type="text" id="organization" placeholder="Organization" maxlength="50">
+	    </div>
+	  </div>
+	</div>
+	<div class="control-group">
+	  <label class="control-label" for="inputEmail">Email</label>
+	  <div class="controls">
+	    <div class="input-prepend">
+	      <span class="add-on"><i class="icon-envelope"></i></span>
+	      <input type="text" id="email" placeholder="Email" maxlength="50">
+	    </div>
+	  </div>
+	</div>
+	<div class="control-group">
+	  <label class="control-label" for="inputText">Brief Project Description</label>
+	  <div class="controls">
+	    <textarea id="project_description" style="width:67%;" rows="3" placeholder="A brief description of the change you are planning to implement" maxlength="500"></textarea>
+	  </div>
+	</div>
+	<div class="control-group">
+	  <div class="controls">
+	    <label class="checkbox">
+	      <input type="checkbox" checked> Sign up for Monthly Newsletter
+	    </label>
+	    <button type="submit" class="btn">Send</button>
+	  </div>
+	</div>
+      </div>
+    </form><!-- end of form-->
 
-    
-</div>
-<div class="modal-footer">
-  <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-  <button class="btn btn-primary">Save changes</button>
-</div>
+    <div id="submitConfirmation" style="display:none;">
+      <p>Thank you for reaching out to us! We will get back to you within 24 hours.</p>
+      <p>In the meantime, <strong>please follow us below</strong> on your favorite social networks to stay up to date with the latest trends in change management.</p>
+      
+      <h4 align="center" style="margin: 10px 0 15px 0;">Stay Connected</h4>  
+      <ul class="social-icons" style="width:165px;">
+        <li><a href="#" data-original-title="Facebook" class="social_facebook_inverted"></a></li>
+        <li><a href="#" data-original-title="Twitter" class="social_twitter_inverted"></a></li>
+        <li><a href="#" data-original-title="Goole Plus" class="social_googleplus_inverted"></a></li>
+        <li><a href="#" data-original-title="Linkedin" class="social_linkedin_inverted"></a></li>
+        <li style="margin-right:0"><a href="#" data-original-title="Tumblr" class="social_tumblr_inverted"></a></li>
+      </ul>
+      
+    </div>
+  </div>
+
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    <button id="myModalSaveChanges" class="btn btn-primary">Save changes</button>
+  </div>
 </div>
 
 <a name="proteus_model"></a>

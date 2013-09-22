@@ -715,7 +715,8 @@ display: inline-block;
 
 /*Social Icons*/
 .social-icons {
-    margin:0;
+    margin-right:auto;
+    margin-left:auto;
 }
 .social-icons li {
     float: left;
@@ -746,6 +747,13 @@ display: inline-block;
 .social_linkedin {background: url(/images/social/linkedin.png) no-repeat;}
 .social_tumblr {background: url(/images/social/tumblr.png) no-repeat;}
 .social_twitter {background: url(/images/social/twitter.png) no-repeat;}
+
+.social_facebook_inverted {background: url(/images/social/facebook_inverted.png) no-repeat;}
+.social_googleplus_inverted {background: url(/images/social/googleplus_inverted.png) no-repeat;}
+.social_linkedin_inverted {background: url(/images/social/linkedin_inverted.png) no-repeat;}
+.social_tumblr_inverted {background: url(/images/social/tumblr_inverted.png) no-repeat;}
+.social_twitter_inverted {background: url(/images/social/twitter_inverted.png) no-repeat;}
+
       
       @media(max-width: 970px){
 	  .footer, .finalfooter {

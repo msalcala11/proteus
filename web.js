@@ -62,8 +62,8 @@ var emailServer  = email.server.connect({
 
 //Set time zone for timestamps to 'America/New_York'
 client.query("SET TIME ZONE 'America/New_York';");
-//initlize monthly newsletter subscription table if it does not exist
-client.query("CREATE TABLE IF NOT EXISTS newsletter(subscriber_id serial primary key,subscription_date timestamp default current_timestamp,email varchar(255));");
+//initialize monthly newsletter subscription table and inquiry table if they do not already exist
+client.query("CREATE TABLE IF NOT EXISTS newsletter(subscriber_id serial primary key,subscription_date timestamp default current_timestamp,email varchar(255)); CREATE TABLE IF NOT EXISTS inquiries(inquiry_id serial primary key, inquiry_date timestamp default current_timestamp, name varchar(255), organization varchar(255), email varchar(255), project_description varchar(255), newsletter_subscriber boolean);");
 
 var app = express.createServer(express.logger());
 
@@ -98,6 +98,16 @@ app.post('/new_newsletter_subscriber', function(req, res) {
 	}
     });
 });
+
+app.post('/new_inquiry', function(req, res) {
+    var sqlQuery = util.format("INSERT INTO inquiries(email) values('%s')", req.body.email);
+    console.log(sqlQuery);
+    client.query(sqlQuery);
+    //lets send response back to client
+    res.send("success");
+});
+
+
 
 var port = process.env.PORT || 8080;
 app.listen(port, function() {
