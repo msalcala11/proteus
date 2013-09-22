@@ -205,7 +205,6 @@
 
 
 
-
       /* Marketing Copy and Footer */
       .copy {
         padding-top: 2.5%;
@@ -363,12 +362,13 @@
 }
 
 
-/*Service*/
-.service { 
+/*ModelComponent*/
+
+.modelcomponent { 
     margin:20px 0;
     padding:15px 15px 10px;
 }
-.service:hover {
+.modelcomponent:hover {
     border-radius:20px;
     box-shadow:0 0 15px #ccc;
     background:#fcfcfc;
@@ -377,10 +377,10 @@
     -o-transition:box-shadow 0.2s ease-in-out;
     transition:box-shadow 0.2s ease-in-out;
 }
-.service:hover i {
+.modelcomponent:hover i {
     color:#656565;
 }
-.service i {
+.modelcomponent i {
     float:left;
     padding:10px;
     color:#057ce2;
@@ -391,21 +391,39 @@
     -o-transition:all 0.4s ease-in-out;
     transition:all 0.4s ease-in-out;
 }
-.service i.icon-cogs {
+.modelcomponent i.icon-cogs {
     font-size:37px;
 }
-.service .desc {
+.modelcomponent .desc {
     width:75%;
     float:right;
 }
-.service .desc h4 {
+.modelcomponent .desc h4 {
     font-size:22px;
     line-height:25px;
 }
 
-.ie7 .service .circle i  {
+.ie7 .modelcomponent .circle i  {
     padding-bottom:45px !important; /*ie7*/
 }
+
+/* Services
+-------------------------------------------------- */
+#services {
+  margin-top: 0px;
+  margin-bottom: -20px; }
+  #services .service {
+    border-bottom: 1px solid #e0e0e0;
+    margin-bottom: 40px; }
+    #services .service .info h3 {
+      font-size: 21px;
+      margin-top: 45px; }
+      #services .service .info h3 img {
+        margin-right: 18px;
+        position: relative;
+        top: -10px; }
+    #services .service .info p {
+      margin-top: 15px; }
 
 
 /*Testimonials*/
@@ -697,7 +715,8 @@ display: inline-block;
 
 /*Social Icons*/
 .social-icons {
-    margin:0;
+    margin-right:auto;
+    margin-left:auto;
 }
 .social-icons li {
     float: left;
@@ -728,6 +747,13 @@ display: inline-block;
 .social_linkedin {background: url(/images/social/linkedin.png) no-repeat;}
 .social_tumblr {background: url(/images/social/tumblr.png) no-repeat;}
 .social_twitter {background: url(/images/social/twitter.png) no-repeat;}
+
+.social_facebook_inverted {background: url(/images/social/facebook_inverted.png) no-repeat;}
+.social_googleplus_inverted {background: url(/images/social/googleplus_inverted.png) no-repeat;}
+.social_linkedin_inverted {background: url(/images/social/linkedin_inverted.png) no-repeat;}
+.social_tumblr_inverted {background: url(/images/social/tumblr_inverted.png) no-repeat;}
+.social_twitter_inverted {background: url(/images/social/twitter_inverted.png) no-repeat;}
+
       
       @media(max-width: 970px){
 	  .footer, .finalfooter {

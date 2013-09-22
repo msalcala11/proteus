@@ -28,7 +28,6 @@ $(document).ready(function () {
 
 //Lets handle the monthly newsletter subscription
 $("#newsletter-form").submit(function(e){
-
     if(!$("#btn-subscribe").hasClass('disabled')){//do not do anything if already submitted email address
 	var input = $("#subscribe-input").val();
 	function validateEmail(email) {// http://thejimgaudet.com/articles/support/web/jquery-email-validation-without-a-plugin/
@@ -90,7 +89,7 @@ $("#newsletter-form").submit(function(e){
 	}
 	$("#response-text").text(message);
 	$("#subscribe-response").removeClass("hidden");
-	$(".alert").show();
+	$("#subscribe-response").show();
     }
     e.preventDefault();
 });
@@ -105,8 +104,83 @@ $(function(){
 
 //This snippet prevents the body from scrolling in the background when myModal is open
 $("#myModal").on("show", function () {
-    console.log('modal body css applied');
   $("body").addClass("modal-open");
 }).on("hidden", function () {
   $("body").removeClass("modal-open")
 });
+
+//This snippet handles the "Let's talk business form"
+$("#letsTalkBizForm").submit(function(e){
+    var name = $("#name").val();
+    var organization = $("#organization").val();
+    var email = $("#email").val();
+    var project_description = $("#project_description").val();
+    
+    //a quick little function to ensure the email follows a valid format
+    // http://thejimgaudet.com/articles/support/web/jquery-email-validation-without-a-plugin/
+    function validateEmail(email) {
+	if(email === ""){
+	    var isEmail = false;
+	}
+	else{
+	    var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+	    var isEmail = emailReg.test(email);
+	}
+	return isEmail;
+    }
+
+    //lets write our form validation code for each field
+    var nameError = "Please enter your name.";
+    var emailError = "Please enter a valid email address.";
+    var projectError = "Please enter a brief description of your project.";
+    var message = '';
+
+    if(name === ''){//if no name was given
+	message = message + nameError + '</br>';
+    }
+    if(!validateEmail(email)){//if invalid email
+	message = message + emailError + '</br>';
+    }
+    if(project_description === ''){//if no project description was given
+	message = message + projectError;
+    }
+	
+	if(message !== ""){//if at least one error, then display the error to the user
+	    $('#inquiry-validation-response').addClass('alert-error');	    
+	    $("#inquiry-response-text").html(message);
+	    $("#inquiry-validation-response").removeClass("hidden");
+	    $("#inquiry-validation-response").show();
+	}
+	else{
+	    //lets store information in database and display confirmation to the user
+	    function myCallback(response){
+		if(response === 'success'){
+		    $("#letsTalkBizForm").fadeOut( "slow" );
+		    $("#myModalLabel").text("Success!");
+		    $("#submitConfirmation").fadeIn("slow");
+		    $("#myModalSaveChanges").fadeOut("slow");
+		}
+		else{		    	    
+		    /*
+		     Still need to add error response here in case of no internet connection
+		     ie "Can't connect to our servers. Please check your internet connection."
+		     */
+		}
+	    }
+	    
+	    function myConnection(callback){
+		$.ajax({  
+		    type: "POST",  
+		    url: "/new_inquiry",  
+		    data: {"name": name,"organization": organization, "email": email, "project_description": project_description},   
+		    success: function(response) {  
+		    //once we recieve the server response to our post run the callback fx above
+			callback(response);
+		    }  		
+		}); 
+	    } 	    
+	    myConnection(myCallback);	    
+	}
+    e.preventDefault();
+});
+
