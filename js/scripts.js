@@ -89,7 +89,7 @@ $("#newsletter-form").submit(function(e){
 	}
 	$("#response-text").text(message);
 	$("#subscribe-response").removeClass("hidden");
-	$(".alert").show();
+	$("#subscribe-response").show();
     }
     e.preventDefault();
 });
@@ -109,15 +109,16 @@ $("#myModal").on("show", function () {
   $("body").removeClass("modal-open")
 });
 
-//This snippets allows for modal form fading on form submit
-
+//This snippet handles the "Let's talk business form"
 $("#letsTalkBizForm").submit(function(e){
     var name = $("#name").val();
     var organization = $("#organization").val();
     var email = $("#email").val();
     var project_description = $("#project_description").val();
     
-    function validateEmail(email) {// http://thejimgaudet.com/articles/support/web/jquery-email-validation-without-a-plugin/
+    //a quick little function to ensure the email follows a valid format
+    // http://thejimgaudet.com/articles/support/web/jquery-email-validation-without-a-plugin/
+    function validateEmail(email) {
 	if(email === ""){
 	    var isEmail = false;
 	}
@@ -134,81 +135,52 @@ $("#letsTalkBizForm").submit(function(e){
     var projectError = "Please enter a brief description of your project.";
     var message = '';
 
-    if(name === ''){
+    if(name === ''){//if no name was given
 	message = message + nameError + '</br>';
     }
-    if(!validateEmail(email)){
-//	$('#inquiry-validation-response').addClass('alert-error');
+    if(!validateEmail(email)){//if invalid email
 	message = message + emailError + '</br>';
     }
-    if(project_description === ''){
+    if(project_description === ''){//if no project description was given
 	message = message + projectError;
     }
 	
-	if(message !== ""){
-	    $('#inquiry-validation-response').addClass('alert-error');
-	    //message = "Please enter a valid email address.";
+	if(message !== ""){//if at least one error, then display the error to the user
+	    $('#inquiry-validation-response').addClass('alert-error');	    
 	    $("#inquiry-response-text").html(message);
 	    $("#inquiry-validation-response").removeClass("hidden");
-	    $(".alert").show();
+	    $("#inquiry-validation-response").show();
 	}
 	else{
-	    //lets post the email and store it in db
-
+	    //lets store information in database and display confirmation to the user
 	    function myCallback(response){
 		if(response === 'success'){
 		    $("#letsTalkBizForm").fadeOut( "slow" );
 		    $("#myModalLabel").text("Success!");
 		    $("#submitConfirmation").fadeIn("slow");
 		    $("#myModalSaveChanges").fadeOut("slow");
-		    
-	/*	    message = "<strong>Success!</strong> Thank you for subscribing!";
-		    $('#btn-subscribe').removeClass('btn-primary');
-		    $('#btn-subscribe').addClass('disabled');
-		    $('#btn-subscribe').addClass('btn-success');
-		    $('#btn-subscribe').text("Success!");
-		    $('#subscribe-input').prop('disabled', true);
-		    
-		    $("#response-text").html(message);
-		    if($('#subscribe-response').hasClass('alert-error')){
-			$('#subscribe-response').removeClass('alert-error');
-		    }
-		    $('#subscribe-response').addClass('alert-success');
-		    $("#subscribe-response").removeClass("hidden");*/
 		}
 		else{		    	    
 		    /*
-		    message = "It looks like you've already signed up with " + input+ ". However, you're welcome to subscribe again with a different email address!";
-		    $("#response-text").text(message);
-		    $('#subscribe-response').addClass('alert-error');
-		    $("#subscribe-response").removeClass("hidden");*/
+		     Still need to add error response here in case of no internet connection
+		     ie "Can't connect to our servers. Please check your internet connection."
+		     */
 		}
 	    }
 	    
 	    function myConnection(callback){
-
 		$.ajax({  
 		    type: "POST",  
 		    url: "/new_inquiry",  
 		    data: {"name": name,"organization": organization, "email": email, "project_description": project_description},   
 		    success: function(response) {  
-		    //once we recieve the server response to our previous post:  
+		    //once we recieve the server response to our post run the callback fx above
 			callback(response);
 		    }  		
 		}); 
 	    } 	    
 	    myConnection(myCallback);	    
 	}
-/*    $("#response-text").text(message);
-    $("#inquiry-validation-response").removeClass("hidden");
-    $(".alert").show();
-    
-
-
-    $("#letsTalkBizForm").fadeOut( "slow" );
-    $("#myModalLabel").text("Success!");
-    $("#submitConfirmation").fadeIn("slow");
-    $("#myModalSaveChanges").fadeOut("slow");*/
     e.preventDefault();
 });
 
