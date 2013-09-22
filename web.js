@@ -100,7 +100,7 @@ app.post('/new_newsletter_subscriber', function(req, res) {
 });
 
 app.post('/new_inquiry', function(req, res) {
-    var sqlQuery = util.format("INSERT INTO inquiries(email) values('%s')", req.body.email);
+    var sqlQuery = util.format("INSERT INTO inquiries(name, organization, email, project_description) values('%s', '%s', '%s', '%s')", req.body.name, req.body.organization, req.body.email, req.body.project_description);
     console.log(sqlQuery);
     client.query(sqlQuery);
     //lets send response back to client

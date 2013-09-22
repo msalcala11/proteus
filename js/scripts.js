@@ -138,9 +138,8 @@ $("#letsTalkBizForm").submit(function(e){
     var message = '';
 
     console.log(name);
-    if(!name || 0 === name.length){
+    if(name === ''){
 	message = message + nameError + '</br>';
-	console.log("made it into conditional");
 	console.log(message);
     }
     if(!validateEmail(email)){
@@ -150,8 +149,6 @@ $("#letsTalkBizForm").submit(function(e){
     if(project_description === ''){
 	message = message + projectError;
     }
-    console.log(message);
-
 	
 	if(message !== ""){
 	    $('#inquiry-validation-response').addClass('alert-error');
