@@ -97,7 +97,7 @@ $("#newsletter-form").submit(function(e){
 //Function to handle the opening and closing of alert boxes by hiding them temporarily
 //rather than dismissing them permanently
 $(function(){
-    $(".close").on("click", function(){
+    $(".alertClose").on("click", function(){
 	$(this).parent().hide();
     });
 });
@@ -150,14 +150,17 @@ $("#letsTalkBizForm").submit(function(e){
 	    $("#inquiry-response-text").html(message);
 	    $("#inquiry-validation-response").removeClass("hidden");
 	    $("#inquiry-validation-response").show();
+	    $('.modal-body').animate({ scrollTop: "0px"});  
 	}
 	else{
 	    //lets store information in database and display confirmation to the user
 	    function myCallback(response){
 		if(response === 'success'){
-		    $("#letsTalkBizForm").fadeOut( "slow" );
+		    $("#letsTalkBizFormContainer").fadeOut( "slow" );
 		    $("#myModalLabel").text("Success!");
 		    $("#submitConfirmation").fadeIn("slow");
+		    $("#modalCloseBtn").fadeIn("slow");
+		    $("#letsTalkBizFormSubmit").fadeOut("slow");
 		    $("#myModalSaveChanges").fadeOut("slow");
 		}
 		else{		    	    
