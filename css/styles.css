@@ -1,5 +1,9 @@
  /*My css overrides*/
 
+.alertClose {
+/*used solely for closing validation alert boxes without destroying them completely*/
+}
+
 .nav>li {
     margin: 0 2px;
 }

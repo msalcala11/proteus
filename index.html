@@ -85,7 +85,7 @@
       <!--        <a href="#" class="btn-buy hover-effect">Let's Talk Business</a>-->
       <div class="center">
 	<!--<div class="btn btn-large btn-success" style="margin: 22px 0 0 0;">Let's Talk Business &nbsp;<i class="icon-arrow-right"></i></div>-->
-	<a href="#myModal" role="button" class="btn btn-large btn-success" data-toggle="modal" style="margin: 22px 0 0 0;">Let's Talk Business</a>
+	<a href="#myModal" role="button" class="btn btn-large btn-success" data-toggle="modal" style="margin: 22px 0 0 0; padding-right: 50px; padding-left: 50px;">Contact Us</a>
       </div>
     </div>
   </div><!--/row-fluid-->
@@ -93,16 +93,18 @@
 
 <!-- Button to trigger modal -->
 <!-- Modal -->
+<form id="letsTalkBizForm">
 <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+    <button type="button" data-dismiss="modal" aria-hidden="true" class="close">x</button>
     <h3 id="myModalLabel">Let's Talk Business</h3>
   </div>
   <div class="modal-body">
-    <form id="letsTalkBizForm">
+
+    <div id="letsTalkBizFormContainer">
     <p>Tell us a little about your organization's upcoming change implementation. We'd love to offer our wisdom to help you succeed.</p></br>
     <div id="inquiry-validation-response" class="hidden alert">
-      <button type="button" class="close">&times;</button>
+      <button type="button" class="close alertClose">&times;</button>
       <div id="inquiry-response-text"><strong>Warning!</strong> Best check yo self, you're not looking too good.</div>
     </div>
       <div class="form-horizontal">
@@ -139,16 +141,17 @@
 	    <textarea id="project_description" style="width:67%;" rows="3" placeholder="A brief description of the change you are planning to implement" maxlength="500"></textarea>
 	  </div>
 	</div>
-	<div class="control-group">
+<!--	<div class="control-group">
 	  <div class="controls">
 	    <label class="checkbox">
 	      <input type="checkbox" checked> Sign up for Monthly Newsletter
 	    </label>
-	    <button type="submit" class="btn">Send</button>
+
 	  </div>
-	</div>
+	</div>-->
       </div>
-    </form><!-- end of form-->
+</div>
+<!-- end of form-->
 
     <div id="submitConfirmation" style="display:none;">
       <p>Thank you for reaching out to us! We will get back to you within 24 hours.</p>
@@ -166,11 +169,15 @@
     </div>
   </div>
 
+
   <div class="modal-footer">
-    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-    <button id="myModalSaveChanges" class="btn btn-primary">Save changes</button>
+    <button id="modalCloseBtn" class="btn" style="display: none" data-dismiss="modal" aria-hidden="true">Close</button>
+<!--    <button id="myModalSaveChanges" class="btn btn-primary">Save changes</button>-->
+    <button id="letsTalkBizFormSubmit" type="submit" class="btn btn-primary">Send</button>
   </div>
 </div>
+</form>
+
 
 <a name="proteus_model"></a>
 
@@ -402,7 +409,7 @@
 	  </div>
 <!--	  <div id="subscribe-response" class="hidden alert alert-error">Thank you for your subscription.<a class="close" data-dismiss="alert" href="#">&times;</a></div>-->
 <div id="subscribe-response" class="hidden alert">
-  <button type="button" class="close">&times;</button>
+  <button type="button" class="close alertClose">&times;</button>
   <div id="response-text"><strong>Warning!</strong> Best check yo self, you're not looking too good.</div>
 </div>
 
