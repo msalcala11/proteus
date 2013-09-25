@@ -1,13 +1,25 @@
 //These are my js client scripts
 
+//The following variables will be used to handle navbar scrolling
+var topRange = 200;  // measure from the top of the viewport to X pixels down
+var edgeMargin = 20;   // margin above the top or margin from the end of the page
+var contentTop = [];
+var lastClicked = 0; //keeps track how long ago a navbar button was clicked
+
 //This segment changes the active navbar button when it is clicked
 $(document).ready(function () {
+
     $('ul.nav > li').click(function (e) {
+	//store the time of the click
+	var d = new Date;
+	lastClicked = d.getTime();
+	
+	//make the clicked button the active button
 	var h = $('a', this).attr('href');	
         $('ul.nav > li').removeClass('active');
         $(this).addClass('active');                
 	
-	//now lets scroll to the appropriate section
+	//scroll to the appropriate section
         if(h.indexOf('#') === 0) {
             h = h.substring(1);
             if(h === 'home') {
@@ -16,13 +28,44 @@ $(document).ready(function () {
 		});
             } else {
 		$('html, body').stop().animate({
-                    scrollTop: $('a[name="' + h + '"]').offset().top -80
+                    scrollTop: $('a[id="' + h + '"]').offset().top -80
 		});
             }
             return false;
         }
         return true;	
     });            
+    
+    //If a user's scrolls to another section, lets change the active navbar button
+
+    //First let's set up an array of locations for each section
+     $('.nav').find('a').each(function(){
+	 //lets not include the blog link since it will not be a section within index.html
+	 if($(this).attr('href') !== '#blog'){
+	     contentTop.push( $( $(this).attr('href') ).offset().top );
+	 }
+     });
+    
+    //Now let's actually change the active navbar button based on where the user scrolls
+    $(window).scroll(function(){
+	//first lets check to make sure the user hasn't just clicked on a navbar button because if the user has just clicked on a navbar button we do not need to run this function.
+	var d = new Date;
+	var t = d.getTime();
+	var dif = t - lastClicked;
+
+	if((t-lastClicked) > 700){ //do nothing if user clicked on navbar in past 700ths of a second
+	    var winTop = $(window).scrollTop(),
+	    bodyHt = $(document).height(),
+	    vpHt = $(window).height() + edgeMargin;  // viewport height + margin
+	    $.each( contentTop, function(i,loc){
+		if ( ( loc > winTop - edgeMargin && ( loc < winTop + topRange || ( winTop + vpHt ) >= bodyHt ) ) ){
+		    $('.nav li').removeClass('active');
+		    $('.nav li').eq(i).addClass('active');
+		}
+	    });
+	}
+    });
+    
 });
 
 
