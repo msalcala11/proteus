@@ -2,9 +2,9 @@
 
 //The following variables will be used to handle navbar scrolling
 var topRange = 200;  // measure from the top of the viewport to X pixels down
-var edgeMargin = 20;   // margin above the top or margin from the end of the page
-var contentTop = [];
-var lastClicked = 0; //keeps track how long ago a navbar button was clicked
+var edgeMargin = 20; // margin above the top or margin from the end of the page
+var contentTop = []; // array that stores the location of each section 
+var lastClicked = 0; // keeps track how long ago a navbar button was clicked
 
 //This segment changes the active navbar button when it is clicked
 $(document).ready(function () {
@@ -199,12 +199,10 @@ $("#letsTalkBizForm").submit(function(e){
 	    //lets store information in database and display confirmation to the user
 	    function myCallback(response){
 		if(response === 'success'){
-		    $("#letsTalkBizFormContainer").fadeOut( "slow" );
 		    $("#myModalLabel").text("Success!");
 		    $("#submitConfirmation").fadeIn("slow");
 		    $("#modalCloseBtn").fadeIn("slow");
 		    $("#letsTalkBizFormSubmit").fadeOut("slow");
-		    $("#myModalSaveChanges").fadeOut("slow");
 		}
 		else{		    	    
 		    /*
@@ -215,12 +213,16 @@ $("#letsTalkBizForm").submit(function(e){
 	    }
 	    
 	    function myConnection(callback){
+		//lets display a loading icon to the user while the request is made
+		$("#letsTalkBizFormContainer").hide();
+		$('#loading-indicator').show();
 		$.ajax({  
 		    type: "POST",  
 		    url: "/new_inquiry",  
 		    data: {"name": name,"organization": organization, "email": email, "project_description": project_description},   
 		    success: function(response) {  
 		    //once we recieve the server response to our post run the callback fx above
+			$('#loading-indicator').hide();
 			callback(response);
 		    }  		
 		}); 
