@@ -4,6 +4,11 @@
 /*used solely for closing validation alert boxes without destroying them completely*/
 }
 
+.loader {
+    display: block;
+    margin: 0 auto;
+}
+
 .nav>li {
     margin: 0 2px;
 }
