@@ -51,18 +51,18 @@
 .da-slide h2{
 	font-family: 'Open Sans', sans-serif;
 	color: #f9f9f9;
-	line-height:50px;
+	line-height:40px;
 	top: 100px;
 	z-index: 10;
 	padding:0;
 	margin-left:-2%;
 }
 .da-slide h2 i {
-	font-size: 36px;
+	font-size: 28px;
 	font-style:normal;
 	background:url('/images/parallax-slider/bg-heading.png') repeat;
 	padding:0 5px;
-	text-transform:uppercase;
+/*	text-transform:uppercase;*/
 }
 .da-slide p {
 	font-family: 'Open Sans', sans-serif;
