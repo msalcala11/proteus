@@ -1,5 +1,6 @@
  /*My css overrides*/
-
+.color-green { color:#72c02c;
+	     padding-right: 10px;}
 .alertClose {
 /*used solely for closing validation alert boxes without destroying them completely*/
 }
